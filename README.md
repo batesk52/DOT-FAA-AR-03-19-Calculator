@@ -1,4 +1,8 @@
 
+Wherever you want to link to your Real Cool Heading section, put your desired text in brackets, followed by the anchor link in parentheses:
+[Go to Real Cool Heading section](#real-cool-heading)
+
+
 gui.py
 	I'm not exactly sure how I want this to look yet. I'm using ChatGPT to expedite
 	• [no class]
@@ -227,6 +231,8 @@ analyze.py
 					 Dictionary of raw data, with specimen ID's as keys & test data as values
 			§ Returns:
 				 None - it adds the data of interest to an existing plot
+
+#Real Cool Heading
 
 report.py
 	This file is designed for creating automated PDF reports 

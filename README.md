@@ -1,9 +1,13 @@
-[Project Overview](#description-of-use)
+[Project Overview](#overview)
+
+[Steps to Get Started](#dsteps-to-get-started)
 
 
-# Description of Use:
 
-This software project is intended to simplify the process of performing statistical analysis per [DOT/FAA/AR-03/19 - Material Qualification and Equivalency for Polymer Matrix Composite Material Systems (Updated Procedure)](https://www.tc.faa.gov/its/worldpac/techrpt/ar03-19.pdf). There are numerous statistical methods used in this report. One calculation of particular use to me is A & B Basis. [Refer to this link for an explanation of A & B Basis design allowables](https://ntrs.nasa.gov/citations/20040111395).
+
+# Overview:
+
+This software project is intended to simplify the process of performing statistical analysis per [DOT/FAA/AR-03/19 - Material Qualification and Equivalency for Polymer Matrix Composite Material Systems (Updated Procedure)](https://www.tc.faa.gov/its/worldpac/techrpt/ar03-19.pdf). There are numerous statistical methods used in this report. One calculation of particular use to me is A & B Basis. [NASA application](https://ntrs.nasa.gov/citations/20040111395) / [FAA application](https://www.mmpds.org/wp-content/uploads/2015/03/mmpds_2015_2007aeromat_presentation.pdf).
 
 In general, A & B Basis allowables can be thought of as additional "factors of safety" that are related to material or compenent variability. These values are calculated using confidence intervals. If the datasets can be:
 
@@ -12,8 +16,10 @@ In general, A & B Basis allowables can be thought of as additional "factors of s
 
 then, calculations then become very straightforward: see [Section 5.3 STATISTICAL ANALYSIS](https://www.tc.faa.gov/its/worldpac/techrpt/ar03-19.pdf) for more information on the statistical methods employed.
 
-This tool performs A & B basis calculations assuming that Conditions 1 & 2 are true. In future versions of this tool, additional statistical methods from 
+This tool performs A & B basis calculations assuming that Conditions 1 & 2 are true. In future versions of this tool, additional statistical methods from AR-03/19 will be implemented. A weibull analysis method will be implemented (for cases in which the data is not normally distributed).
 
+
+# Steps to Get Started
 
 
 

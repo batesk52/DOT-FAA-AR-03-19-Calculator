@@ -232,7 +232,7 @@ analyze.py
 			§ Returns:
 				 None - it adds the data of interest to an existing plot
 
-#Real Cool Heading
+# Real Cool Heading
 
 report.py
 	This file is designed for creating automated PDF reports 

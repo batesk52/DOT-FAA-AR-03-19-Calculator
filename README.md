@@ -1,6 +1,11 @@
+[Project Overview](#description-of-use)
 
-Wherever you want to link to your Real Cool Heading section, put your desired text in brackets, followed by the anchor link in parentheses:
-[Go to Real Cool Heading section](#real-cool-heading)
+
+# Description of Use:
+
+This project was created to simplify & standardize the process of generating material property 
+
+
 
 
 gui.py
@@ -231,8 +236,6 @@ analyze.py
 					 Dictionary of raw data, with specimen ID's as keys & test data as values
 			§ Returns:
 				 None - it adds the data of interest to an existing plot
-
-# Real Cool Heading
 
 report.py
 	This file is designed for creating automated PDF reports 

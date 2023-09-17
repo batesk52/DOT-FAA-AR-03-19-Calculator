@@ -57,7 +57,7 @@ class MyGridLayout(GridLayout):
     def __init__(self, **kwargs):
         super(MyGridLayout, self).__init__(**kwargs)
         self.cols = 2
-        self.rows = 5
+        self.rows = 3
         self.padding = 50 # set padding to 50 pixels
         self.spacing = 20 # set spacing between widgets to 20 pixels
         self.row_default_height=50
@@ -82,44 +82,22 @@ class MyGridLayout(GridLayout):
         self.add_widget(button1)
     
         
-        button2 = Button(text='Print Summary Report',
+        button2 = Button(text='Calculate Material Allowables (A,B Basis)',
                  size_hint=(0.3, 0.3),
                  font_size=15,
                  pos_hint={'center_x': 0.5, 'center_y': 0.5})
         button2.bind(on_press=self.on_button2_press)
         self.add_widget(button2)        
-        
-        # tbd
-        button3 = Button(text='Calculate Material Allowables (A,B Basis)',
-                 size_hint=(0.3, 0.3),
-                 font_size=15,
-                 pos_hint={'center_x': 0.5, 'center_y': 0.9})
-        button3.bind(on_press=self.on_button3_press)
-        self.add_widget(button3)
-        
-        button4 = Button(text='Export MAT1 cards',
-                 size_hint=(0.3, 0.3),
-                 font_size=15,
-                 pos_hint={'center_x': 0.5, 'center_y': 0.5})
-        button4.bind(on_press=self.on_button4_press)
-        self.add_widget(button4)    
-     
-        
+
     
     # open databases   
     def on_button1_press(self, instance):
         database.save_results_db()
         print("New Databases Generated")
         
-        
-        
-    def on_button2_press(self, instance):
-        database.save_results_db()
-        print("New Databases Generated")
-        
 
     # generate a, b basis allowables
-    def on_button3_press(self, instance):
+    def on_button2_press(self, instance):
         data = database.load_results_db()
         results = allow.a_b_basis(data,["Condition","Method"])
         
@@ -131,13 +109,6 @@ class MyGridLayout(GridLayout):
                     sheet_name = f"{material}_{prop}"
                     df.to_excel(writer, sheet_name=sheet_name)
         print("a-b-basis.xlsx generated in 'Exports' folder")
-        return results 
-    
-    
-    def on_button4_press(self, instance):
-        data = database.load_results_db()
-        results = allow.a_b_basis(data,["Condition","Method"])
-        print("Allowables Generated")
         return results
 
 

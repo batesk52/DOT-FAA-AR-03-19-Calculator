@@ -21,88 +21,25 @@ This tool performs A & B basis calculations assuming that Conditions 1 & 2 are t
 
 # Steps to Get Started
 
-
-
+1) Navigate to "Input Data / Project1 / V1.0"
+2) Open any of the Excel spreadsheets: each file is a single material, and each sheet is a single material property
+3) Familiarize yourself with the structure of the input data. For this analysis, the only columns that MUST be populated are:
+   	a) specimen ID
+   	b) Value (SI) - this is the value of the material property that is being tracked (in SI units)
+   	c) Condition - this is the test environment (RTD, ETD, CTD, etc)
+   	d) Method - this is the type of test being run (sometimes, multiple tests are used for the same property & you want to compare them)
+5) Run gui.py
+6) The user interface should pop up (assuming you've installed the correct libraries).
+7)  Select the button, "Update Summary Databases"
+8)  A navigation window will open - select the folder containing the version of test data you want to upload to a new database. Then, a new file navigation window will open, asking you where you want to save the data. I recommend you save the data in a new folder, other than V1.0.
+9)  If everything works well, the message "New Databases Generated" in the console
+10)  Return to the GUI; press "Calculate Material Allowables (A,B Basis).
+11)  A navigation pane will open; select the folder containing the database files you want to analyze. This will generate an Excel workbook in the "Exports" folder.
+12)  If everything goes well, a message "a-b-basis.xlsx generated in 'Exports' folder" will generate in the console.
+13)  Navigate to the "Exports" folder to find the A & B basis calculator
 
 
 # Documentation
-
-
-	getdata.py
-	This file is focussed on collecting, trimming, and storing test data collected from test machines. It also performs basic calculations & exports data into consistent dataframes that calculate some result, which can be 
-	• [no class]
-		 Initialize()
-			Creates the folders: "Input Data", "Database", "References"]
-	• RawData(object)
-		This class is used to import test data, and import it into a dictionary with specimen ID's as the keys, and test data stored as a dataframe
-		 select_file()
-			Uses tkinter to open windows explorer & navigate to a file
-			 Arguments:
-				 None
-			 Returns:
-				 filename
-					 Directory for file
-		 select_folder()
-			Uses tkinter to open windows explorer & navigate to a folder
-			 Arguments:
-				 None
-			 Returns:
-				 filename
-					 Directory for folder
-		 get_names(ext, folder)
-			Finds the names of all files with the given extension in the given directory
-			 Arguments:
-				 ext
-					 The extension of the file of interest ("csv", "dat", etc.)
-				 folder
-					 Directory to folder containing test data
-			 Returns:
-				 test_path
-					 Array of strings of filepaths to raw data files
-				 testname
-					 Array of names of each test
-		 import_rawdata(ext, software)
-			This method will ask that you supply the extension & software as arguments. Then, it will run the clean_rawdata method based on the parameters selected as arguments in this method
-			 Arguments:
-				 ext
-					 The extension of the file of interest ("csv", "dat", etc.)
-				 software
-					 # indicates what columns need to be renamed, rows to skip when importing data ("TW,"MPT","BH")
-			 Returns:
-				 data
-					 Dictionary with specimen ID's as the keys, and the raw data of each test as the value
-		 clean_rawdata(test_path,software)
-			This method reads csv files, and applies the necessary edits (renaming columns, skipping rows, etc.) to import raw test data from multiple file types. 
-			 Arguments:
-				 test_path
-					 String containing the directory to the file that is to be imported
-				 software
-					 String input to identify which software package generated the raw data files being imported ("MPT", "BH", "NT", etc.)
-			 Returns:
-				 data
-					 Dictionary with specimen ID's as the keys, and the raw data of each test as the value
-		 change_sign(data,metric)
-			If you want to change the sign of imported data in a selected column, use this method
-			 Arguments:
-				 data
-					 A dataframe with raw data from a single test
-					 Or
-					 A dictionary with sample ID's as keys and raw data as a dataframe as dictionary values
-				 metric
-					 String containing the name of the column which is to be sign-changed
-			 Returns:
-				 data
-					 Changes the sign of the selected column in-place; does not create a new variable
-	• Summary(object)
-		Using this class, perform quick calculations on data that has been imported directly from raw test files. Frequently, this data is copy/pasted into the Excel Spreadsheet needed. It will create a dataframe with specimen ID's as the index, and specimen results as the column entries
-		 all_max_values(data)
-			returns the maximum value from every available column in the list.
-			 Arguments:
-				 data
-					 collection of raw data in dictionary
-			 Returns:
-				 data_all
-					 Dataframe with all maxes calculated
 
 	database.py
 	Using this file, raw data that has been entered into excel templates found in "Input Data" can be imported into SQL databases. This can also be used to store raw data as a single SQL database file. It can also update databases with new information.
@@ -246,47 +183,3 @@ This tool performs A & B basis calculations assuming that Conditions 1 & 2 are t
 					 Dictionary of raw data, with specimen ID's as keys & test data as values
 			§ Returns:
 				 None - it adds the data of interest to an existing plot
-
-	report.py
-	This file is designed for creating automated PDF reports 
-	• PDF()
-		This class contains all the templates for PDF reporting. Child classes can use the templates generated in this class.
-		○ Function
-			TBD
-			§ Arguments:
-				□ TBD
-		○ Function 2
-			TBD
-			§ Arguments:
-				□ TBD
-	• AGATE_WP3_3_033051_115(PDF)
-		This is a child method of the PDF class. The PDF class houses the templates, and the Report class creates different configurations of these pages. As the name suggests, this class is used to recreate AGATE WP3.3-033051-115
-		○ Function
-			TBD
-			§ Arguments:
-				□ TBD
-		○ Function 2
-			TBD
-			§ Arguments:
-				□ TBD
-
-	BRL_study.py
-	Loads all raw data from BRL database
-	• [no class]
-		 convert_units(rawdata)
-			 Used to convert lbf to kN, in to mm, Farenheit to Celsius
-			 Arguments:
-				 Rawdata
-					 Data data from test machine, imported into standard format
-			 Returns:
-				 rawdata
-					 Modifies the argument & returns it in converted units
-		 brl(dataframe_dict, od_inches)
-			 Used to calculate BRL in kilo-pounds per linear inch, from test data stored as kilonewtons & millimeters
-			 Arguments:
-				 dataframe_dict
-					 Dataframe with specimen ID's as the keys, and the raw data of each test as the value
-				 od_inches
-					 The outer diameter of the tube tested, in inches
-			 Returns:
-				 TBD

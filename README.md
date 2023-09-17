@@ -3,7 +3,16 @@
 
 # Description of Use:
 
-This project was created to simplify & standardize the process of generating material property 
+This software project is intended to simplify the process of performing statistical analysis per [DOT/FAA/AR-03/19 - Material Qualification and Equivalency for Polymer Matrix Composite Material Systems (Updated Procedure)](https://www.tc.faa.gov/its/worldpac/techrpt/ar03-19.pdf). There are numerous statistical methods used in this report. One calculation of particular use to me is A & B Basis. [Refer to this link for an explanation of A & B Basis design allowables](https://ntrs.nasa.gov/citations/20040111395).
+
+In general, A & B Basis allowables can be thought of as additional "factors of safety" that are related to material or compenent variability. These values are calculated using confidence intervals. If the datasets can be:
+
+1) assumed to have a normal population distribution
+2) assumed to have equal variance between datasets
+
+then, calculations then become very straightforward: see [Section 5.3 STATISTICAL ANALYSIS](https://www.tc.faa.gov/its/worldpac/techrpt/ar03-19.pdf) for more information on the statistical methods employed.
+
+This tool performs A & B basis calculations assuming that Conditions 1 & 2 are true. In future versions of this tool, additional statistical methods from 
 
 
 

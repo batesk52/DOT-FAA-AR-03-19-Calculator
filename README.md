@@ -1,5 +1,3 @@
-[OneNote will have the most up-to-date readme]
-[Check "ToDo - MPM"]
 
 gui.py
 	I'm not exactly sure how I want this to look yet. I'm using ChatGPT to expedite

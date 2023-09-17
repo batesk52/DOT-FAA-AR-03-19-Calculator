@@ -23,21 +23,12 @@ This tool performs A & B basis calculations assuming that Conditions 1 & 2 are t
 
 
 
+
+
 # Documentation
 
 
-
-gui.py
-	I'm not exactly sure how I want this to look yet. I'm using ChatGPT to expedite
-	• [no class]
-		○ Function
-			TBD
-			 Arguments:
-				 TBD
-			 Returns:
-				 TBD
-
-getdata.py
+	getdata.py
 	This file is focussed on collecting, trimming, and storing test data collected from test machines. It also performs basic calculations & exports data into consistent dataframes that calculate some result, which can be 
 	• [no class]
 		 Initialize()
@@ -113,7 +104,7 @@ getdata.py
 				 data_all
 					 Dataframe with all maxes calculated
 
-database.py
+	database.py
 	Using this file, raw data that has been entered into excel templates found in "Input Data" can be imported into SQL databases. This can also be used to store raw data as a single SQL database file. It can also update databases with new information.
 	• [no class]
 		 save_rawdata_db(data_raw)
@@ -164,7 +155,7 @@ database.py
 							 Material property
 								 Dataframe with results & other datatypes entered
 
-analyze.py
+	analyze.py
 	Given data in a consistent format, use this file for analysis of test data. It can perform several types of statistical analysis & reports them in a consistent format so they can be used interchangeably with getdata.py, database.by, and report.py
 	• Stats(object):
 		This class is designed to perform statistical analysis for generating material allowables (hence the name). It is intended to work with the "Input Data" databases.
@@ -256,7 +247,7 @@ analyze.py
 			§ Returns:
 				 None - it adds the data of interest to an existing plot
 
-report.py
+	report.py
 	This file is designed for creating automated PDF reports 
 	• PDF()
 		This class contains all the templates for PDF reporting. Child classes can use the templates generated in this class.
@@ -279,7 +270,7 @@ report.py
 			§ Arguments:
 				□ TBD
 
-BRL_study.py
+	BRL_study.py
 	Loads all raw data from BRL database
 	• [no class]
 		 convert_units(rawdata)
